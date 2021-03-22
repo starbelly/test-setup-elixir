@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: main
+  MIX_ENV: test
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-latest]
+        otp: ['20.3', '21.3', '22.2', '23.1.2']
+        elixir: ['1.8.2', '1.9.4', '1.11.2']
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup
+        uses: paulo-ferraz-oliveira/setup-elixir@adapt-for-rebar3
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+      - name: deps.get
+        run: mix deps.get
+      - name: compile
+        run: |
+          mix compile --warnings-as-errors
+          mix format
+          mix test
