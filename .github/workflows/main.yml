@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-16.04, ubuntu-18.04, ubuntu-latest]
-        otp: ['21.3', '22.2', '23.1.2', '24.0-rc1', 'main-23', 'master']
+        otp: ['21.3', '22.2', '23.1.2', '24.0-rc1', 'maint-23', 'master']
         elixir: ['1.8.2', '1.9.4', '1.11.2']
     steps:
       - name: checkout
