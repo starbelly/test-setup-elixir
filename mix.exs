@@ -5,7 +5,7 @@ defmodule TestSetupElixir.MixProject do
     [
       app: :test_setup_elixir,
       version: "0.1.0",
-      elixir: "~> 1.11",
+      elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
