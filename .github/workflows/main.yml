@@ -39,7 +39,7 @@ jobs:
       - name: compile
         run: | 
           mix compile --warnings-as-errors
-          cd ../../_actions/erlef/setup-beam
+          cd ~/.mix
           find .
 
   dialyzer:
