@@ -39,8 +39,7 @@ jobs:
       - name: compile
         run: | 
           mix compile --warnings-as-errors
-          cd ..
-          cd ..
+          cd ../../_actions
           ls -la
 
   dialyzer:
