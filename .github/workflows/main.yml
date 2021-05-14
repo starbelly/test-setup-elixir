@@ -20,7 +20,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: setup
-        uses: erlef/setup-beam
+        uses: erlef/setup-beam@main
         with:
           otp-version: ${{ env.otp-version }}
           elixir-version: ${{ env.elixir-version }}
@@ -50,7 +50,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: setup
-        uses: erlef/setup-beam
+        uses: erlef/setup-beam@main
         with:
           otp-version: ${{ env.otp-version }}
           elixir-version: ${{ env.elixir-version }}
