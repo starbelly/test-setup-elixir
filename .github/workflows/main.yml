@@ -9,7 +9,7 @@ on:
 
 env:
   otp-version: '24'
-  elixir-version: '1.11.3'
+  elixir-version: '1.12.3'
   MIX_ENV: test
 
 jobs:
