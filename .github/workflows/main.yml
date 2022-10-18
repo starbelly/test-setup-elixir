@@ -4,12 +4,13 @@ on:
   push:
     branches:
       - main
+      - test-paulos-latest-changes
   pull_request:
     types: [opened, synchronize]
 
 env:
-  otp-version: '24'
-  elixir-version: '1.11.3'
+  otp-version: 'master'
+  elixir-version: '1.14.0-otp-master'
   MIX_ENV: test
 
 jobs:
@@ -20,7 +21,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: setup
-        uses: erlef/setup-beam@main
+        uses: paulo-ferraz-oliveira/setup-beam@feature/otp-as-master
         with:
           otp-version: ${{ env.otp-version }}
           elixir-version: ${{ env.elixir-version }}
@@ -37,10 +38,8 @@ jobs:
       - name: deps.get
         run: mix deps.get
       - name: compile
-        run: | 
+        run: |
           mix compile --warnings-as-errors
-          cd ~/.mix
-          find .
 
   dialyzer:
     needs: build
@@ -50,7 +49,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: setup
-        uses: erlef/setup-beam@main
+        uses: paulo-ferraz-oliveira/setup-beam@feature/otp-as-master
         with:
           otp-version: ${{ env.otp-version }}
           elixir-version: ${{ env.elixir-version }}
