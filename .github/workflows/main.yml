@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - test-403-problem
   pull_request:
     types: [opened, synchronize]
 
