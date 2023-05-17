@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize]
 
 env:
-  otp-version: '26.0-rc3'
+  otp-version: '26.0'
   elixir-version: 'v1.14.4'
   MIX_ENV: test
 
